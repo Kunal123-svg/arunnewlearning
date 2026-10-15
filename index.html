@@ -129,6 +129,20 @@ h1 {
     box-shadow: 0 6px 20px rgba(183, 33, 255, 0.5);
 }
 
+/* Timer Styles */
+.timer-box {
+    margin-bottom: 25px;
+    font-size: 15px;
+    color: #00c6ff;
+    font-weight: 600;
+}
+
+#timer-count {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
 /* Motivational Text in English */
 .hindi-quote {
     font-size: 15px;
@@ -196,16 +210,18 @@ h1 {
         Join our learning community and grow your knowledge
     </p>
 
-    <a href="https://t.me/+fWVHd_t3519kOTJl" class="telegram-btn">
+    <a href="https://t.me/+fWVHd_t3519kOTJl" id="telegram-link" class="telegram-btn">
         Join Telegram
     </a>
+
+    <!-- Timer Display -->
+    <div class="timer-box">
+        Redirecting in <span id="timer-count">5</span> seconds...
+    </div>
 
     <p class="hindi-quote">
         When intentions are good and hard work is true, success is guaranteed.
     </p>
-
-    <div class="ads-contact">
-        <span style="margin-right: 5px;">
 
     <div class="footer">
         <div class="footer-links">
@@ -217,6 +233,25 @@ h1 {
     </div>
 
 </div>
+
+<!-- Auto Redirect Script -->
+<script>
+    const targetLink = "https://t.me/+fWVHd_t3519kOTJl";
+    let secondsLeft = 5;
+    const timerDisplay = document.getElementById("timer-count");
+
+    const countdown = setInterval(() => {
+        secondsLeft--;
+        if (timerDisplay) {
+            timerDisplay.textContent = secondsLeft;
+        }
+
+        if (secondsLeft <= 0) {
+            clearInterval(countdown);
+            window.location.href = targetLink;
+        }
+    }, 1000);
+</script>
 
 </body>
 </html>
